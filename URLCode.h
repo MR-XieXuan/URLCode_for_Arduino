@@ -1,7 +1,8 @@
 #ifndef _URLCODE_H_
 #define _URLCODE_H_
 
-#include <string.h>
+#include <Arduino.h>
+#include <String.h>
 
 
 class URLCode{
@@ -14,9 +15,6 @@ public:
     void urlencode();   // 编码URL
     void urldecode();   // 解码URL
 };
-
-#include "URLCode.cpp"
-
 
 
 

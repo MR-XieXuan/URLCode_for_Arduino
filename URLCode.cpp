@@ -1,3 +1,6 @@
+#ifndef _URLCODE_CPP_
+#define _URLCODE_CPP_
+
 #include "URLCode.h"
 
 
@@ -94,3 +97,5 @@ void URLCode :: urldecode()
 }
 
 
+
+#endif

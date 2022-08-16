@@ -20,7 +20,7 @@ void setup(){
   // Decoding the urlcode
   url.urldecode();
   // Gain the decoded URL 
-  string st = url.strcode;
+  String st = url.strcode;
   // http://www.mrxie.xyz/{"json":"I'm json"}
   Serial.println( st );
 }

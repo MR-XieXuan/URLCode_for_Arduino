@@ -1,7 +1,5 @@
 #include "URLCode.h"
 
-
-
 int URLCode :: hex2dec(char c){
     if ('0' <= c && c <= '9') 
     {
@@ -22,7 +20,6 @@ int URLCode :: hex2dec(char c){
 }
 
 
-
 char URLCode :: dec2hex(short int c)
 {
     if (0 <= c && c <= 9) 
@@ -40,21 +37,23 @@ char URLCode :: dec2hex(short int c)
 }
 
 
-//编码一个url
+// Chinese 编码一个url
+// English Encode URLCode
 void URLCode :: urlencode()
 {
     urlcode = "";
     int i = 0;
-    int len = urlcode.length();
+    int len = strcode.length();
     for (i = 0; i < len; ++i) 
     {
-        char c = urlcode[i];
+        wdtFeed();
+        char c = strcode[i];
         if (    ('0' <= c && c <= '9') ||
                 ('a' <= c && c <= 'z') ||
                 ('A' <= c && c <= 'Z') || 
                 c == '/' || c == '.') 
         {
-            strcode += String(c);
+            urlcode += String(c);
         } 
         else 
         {
@@ -64,14 +63,15 @@ void URLCode :: urlencode()
             int i1, i0;
             i1 = j / 16;
             i0 = j - i1 * 16;
-            strcode += String('%');
-            strcode += String((char)dec2hex(i1));
-            strcode += String((char)dec2hex(i0));
+            urlcode += String('%');
+            urlcode += String((char)dec2hex(i1));
+            urlcode += String((char)dec2hex(i0));
         }
     }
 }
 
-// 解码url
+// Chinese 解码url
+// English Decode URLCode
 void URLCode :: urldecode()
 {
     strcode = "";
@@ -79,7 +79,7 @@ void URLCode :: urldecode()
     int len = urlcode.length();
     for (i = 0; i < len; ++i) 
     {
-        ESP.wdtFeed();
+        wdtFeed();
         char c = urlcode[i];
         if (c != '%') {
             strcode += String(c);
@@ -93,4 +93,15 @@ void URLCode :: urldecode()
     }
 }
 
+// Chinese 喂看门狗
+// English Feed Watchdog)
+void URLCode :: wdtFeed(){
+    // 喂看门狗代码 如果需要解码的URL太过长，会导致芯片以为运行出错，所以需要进行喂狗 
+    // 如果是 ESP8266 只需要 #define ESP8266 即可 其他芯片的喂狗代码请自行添加
+
+    #ifdef ESP8266
+    ESP.wdtFeed();
+    #endif
+
+}
 

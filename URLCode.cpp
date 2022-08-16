@@ -1,3 +1,6 @@
+#ifndef _URLCODE_CPP_
+#define _URLCODE_CPP_
+
 #include "URLCode.h"
 
 int URLCode :: hex2dec(char c){
@@ -105,3 +108,5 @@ void URLCode :: wdtFeed(){
 
 }
 
+
+#endif

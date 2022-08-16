@@ -13,7 +13,8 @@ History:
 #ifndef _URLCODE_H_
 #define _URLCODE_H_
 
-#include <string.h>
+#include <Arduino.h>
+#include <String.h>
 
 
 class URLCode{
@@ -25,9 +26,14 @@ public:
     String strcode; // URL 编码前
     void urlencode();   // 编码URL
     void urldecode();   // 解码URL
+<<<<<<< HEAD
     void wdtFeed();     // 喂看门狗
 
 };
+=======
+};
+
+>>>>>>> 036639d64b0cdb184e8d9c27b6e2f4af43c70a37
 
 //如果你不是直接下载到库里，而是复制到某个文件夹内，报错URLCode里面的函数没有定义的话，去掉下面这一行的注释
 //#include "URLCode.cpp"

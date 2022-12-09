@@ -1,6 +1,8 @@
 # URLCode_for_Arduino
 Encoding Or Decoding
 
+# Usage
+
 ## 构建 URLCode 对象
 如果你需要解码URL或者编码URL都需要先构建一个URLCode对象
 > URLCode urlobject
